@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <style name="circular_user_img">
+            <item name="cornerSize">50%</item>
+        </style>
+        <style name="circular_movie_img">
+            <item name="cornerSize">20%</item>
+        </style>
+</resources>
