@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.khaled.popcornpals.data.model.Movie" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="3dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/background_color"
+        app:cardCornerRadius="21dp"
+        app:cardElevation="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/movie_img"
+                android:layout_width="120dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{movie.image}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/circular_movie_img"
+                tools:src="@drawable/joker" />
+
+            <TextView
+                android:id="@+id/movie_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintStart_toEndOf="@id/movie_img"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Joker" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

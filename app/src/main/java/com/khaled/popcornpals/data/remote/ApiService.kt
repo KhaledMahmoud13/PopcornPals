@@ -34,7 +34,10 @@ interface ApiService {
     suspend fun getBoxOfficeAllTimeMovies(): String
 
     @GET("Title/$API_KEY/{Id}/Trailer")
-    suspend fun getMovieDetails(@Path("Id") Id: String): String
+    suspend fun getMovieDetails(@Path("Id") id: String): String
+
+    @GET("Search/$API_KEY/{Expression}")
+    suspend fun searchTitle(@Path("Expression") expression: String): String
 
 }
 

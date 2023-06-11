@@ -78,3 +78,18 @@ fun parseMovieDetails(jsonResult: JSONObject): Movie {
         link
     )
 }
+
+fun parseSearch(jsonResult: JSONObject): List<Movie> {
+    val results = jsonResult.getJSONArray("results")
+    val movieList = mutableListOf<Movie>()
+    for (i in 0 until results.length()) {
+        val movieJson = results.getJSONObject(i)
+        val id = movieJson.getString("id")
+        val image = movieJson.getString("image")
+        val title = movieJson.getString("title")
+
+        val movie = Movie(id, image, title)
+        movieList.add(movie)
+    }
+    return movieList
+}

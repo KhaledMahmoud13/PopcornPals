@@ -24,7 +24,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class SplashFragment : Fragment() {
 
     private lateinit var binding: FragmentSplashBinding
-    private val authViewModel: AuthViewModel by viewModels()
+    private val authViewModel: AuthViewModel by lazy {
+        ViewModelProvider(this)[AuthViewModel::class.java]
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

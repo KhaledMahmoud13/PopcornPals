@@ -63,9 +63,7 @@ class MovieViewModel @Inject constructor(
         get() = _navigateToSelectedMovie
 
     init {
-
-            getAllMovies()
-
+        getAllMovies()
         _popularMovies.observeForever { movies ->
             if (movies.isNotEmpty()) {
                 moviesCategories()
@@ -88,8 +86,8 @@ class MovieViewModel @Inject constructor(
         }
     }
 
-    fun getAllMovies() {
-        viewModelScope.launch {
+    private fun getAllMovies() {
+            viewModelScope.launch {
             _status.value = NetworkStatus.LOADING
             try {
                 _popularMovies.value = movieUseCases.getMostPopularMoviesUseCase()!!
@@ -119,7 +117,7 @@ class MovieViewModel @Inject constructor(
 
     fun displayMovieDetails(id: String) {
         viewModelScope.launch {
-            _status.value = NetworkStatus.LOADING
+                _status.value = NetworkStatus.LOADING
             try {
                 _navigateToSelectedMovie.value = movieUseCases.getMovieDetailsUseCase(id)
 //                Log.d("TAG", _navigateToSelectedMovie.value.toString())

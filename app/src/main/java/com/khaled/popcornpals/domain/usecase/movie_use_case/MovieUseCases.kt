@@ -5,5 +5,6 @@ data class MovieUseCases(
     val getTopMoviesUseCase: GetTopMoviesUseCase,
     val getMostPopularMoviesUseCase: GetMostPopularMoviesUseCase,
     val getComingSoonMoviesUseCase: GetComingSoonMoviesUseCase,
-    val getMovieDetailsUseCase: GetMovieDetailsUseCase
+    val getMovieDetailsUseCase: GetMovieDetailsUseCase,
+    val searchUseCase: SearchUseCase
 )

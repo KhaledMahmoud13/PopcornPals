@@ -13,6 +13,7 @@ import com.khaled.popcornpals.domain.usecase.movie_use_case.GetMostPopularMovies
 import com.khaled.popcornpals.domain.usecase.movie_use_case.GetMovieDetailsUseCase
 import com.khaled.popcornpals.domain.usecase.movie_use_case.GetTopMoviesUseCase
 import com.khaled.popcornpals.domain.usecase.movie_use_case.MovieUseCases
+import com.khaled.popcornpals.domain.usecase.movie_use_case.SearchUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,7 +32,8 @@ object AppModule {
             getTopMoviesUseCase = GetTopMoviesUseCase(movieRepository),
             getMostPopularMoviesUseCase = GetMostPopularMoviesUseCase(movieRepository),
             getComingSoonMoviesUseCase = GetComingSoonMoviesUseCase(movieRepository),
-            getMovieDetailsUseCase = GetMovieDetailsUseCase(movieRepository)
+            getMovieDetailsUseCase = GetMovieDetailsUseCase(movieRepository),
+            searchUseCase = SearchUseCase(movieRepository)
         )
     }
 

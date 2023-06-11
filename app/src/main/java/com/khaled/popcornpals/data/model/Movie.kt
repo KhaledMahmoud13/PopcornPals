@@ -55,4 +55,27 @@ data class Movie(
         imDbRating,
         "",
     )
+
+    constructor(id: String, image: String, title: String) : this(
+        id,
+        title,
+        "",
+        "",
+        image,
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        emptyList(),
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    )
 }
