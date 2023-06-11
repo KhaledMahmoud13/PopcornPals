@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">PopcornPals</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name"><font color='@color/white'>Popcorn</font><font color='#6D6BFF'>Pals</font></string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

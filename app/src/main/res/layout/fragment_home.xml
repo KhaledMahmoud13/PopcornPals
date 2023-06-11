@@ -7,212 +7,80 @@
 
         <variable
             name="viewModel"
-            type="com.khaled.popcornpals.viewmodel.MovieViewModel" />
+            type="com.khaled.popcornpals.presentation.viewmodel.MovieViewModel" />
     </data>
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background_color">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_color"
             android:padding="10dp"
-            tools:context=".view.HomeFragment">
+            tools:context=".presentation.fragments.HomeFragment">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/user_img"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="6dp"
-                android:background="#E21938"
-                app:layout_constraintStart_toStartOf="parent"
+            <ImageView
+                android:id="@+id/logout"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="16dp"
+                android:src="@drawable/ic_baseline_exit_to_app_24"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearance="@style/circular_user_img" />
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/search"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/baseline_search_24"
+                app:layout_constraintBottom_toBottomOf="@+id/logout"
+                app:layout_constraintEnd_toStartOf="@+id/logout"
+                app:layout_constraintTop_toTopOf="@+id/logout"
+                app:tint="@color/white" />
 
             <TextView
-                android:id="@+id/hello_tv"
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:text="Hello,"
-                android:textColor="#A9A9A9"
-                android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@id/user_img"
-                app:layout_constraintTop_toTopOf="@id/user_img" />
+                android:layout_marginStart="16dp"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/logout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/logout"
+                tools:text="Khaled Mahmoud" />
 
-            <TextView
-                android:id="@+id/username_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Khaled"
-                android:textSize="22sp"
-                app:layout_constraintStart_toStartOf="@id/hello_tv"
-                app:layout_constraintTop_toBottomOf="@id/hello_tv" />
-
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/search_et"
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="6dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/search_background"
-                android:inputType="text"
-                app:iconifiedByDefault="false"
+                android:layout_height="300dp"
+                app:iss_auto_cycle="true"
+                app:iss_delay="1000"
+                app:iss_period="1000"
+                app:iss_text_align="CENTER"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/user_img"
-                app:queryHint="Search movie..." />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/popular_movie_img"
-                android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:layout_margin="6dp"
-                android:scaleType="fitXY"
-                app:imageUrl="@{viewModel.mostPopularMovie.image}"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/search_et"
-                app:shapeAppearance="@style/circular_movie_img" />
-
-            <TextView
-                android:id="@+id/popular_movie_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:text="@{viewModel.mostPopularMovie.title}"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/popular_movie_img"
-                app:layout_constraintTop_toTopOf="@id/popular_movie_img" />
-
-            <TextView
-                android:id="@+id/popular_movie_year_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:text="@{viewModel.mostPopularMovie.year}"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@id/popular_movie_tv"
-                app:layout_constraintStart_toEndOf="@id/popular_movie_tv"
-                app:layout_constraintTop_toTopOf="@id/popular_movie_tv" />
-
-            <RatingBar
-                android:id="@+id/movie_rb"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
-                android:layout_marginStart="5dp"
-                android:isIndicator="true"
-                android:numStars="5"
-                android:progressTint="#FFD700"
-                android:rating="4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/popular_movie_img"
-                app:layout_constraintTop_toBottomOf="@+id/popular_movie_tv" />
-
-            <!--        <TextView-->
-            <!--            android:id="@+id/popular_movie_genres_tv"-->
-            <!--            android:layout_width="0dp"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:layout_marginStart="15dp"-->
-            <!--            android:text="Crime, Drama, Thriller"-->
-            <!--            android:textColor="#A9A9A9"-->
-            <!--            android:textSize="18sp"-->
-            <!--            app:layout_constraintEnd_toEndOf="parent"-->
-            <!--            app:layout_constraintStart_toEndOf="@id/popular_movie_img"-->
-            <!--            app:layout_constraintTop_toBottomOf="@id/movie_rb" />-->
-
-            <TextView
-                android:id="@+id/suggested_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:text="Suggested for You"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/popular_movie_img" />
-
-            <HorizontalScrollView
-                android:id="@+id/chips_sv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:scrollbars="none"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/suggested_tv">
-
-                <com.google.android.material.chip.ChipGroup
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:singleLine="true"
-                    app:singleSelection="true">
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="4dp"
-                        android:layout_marginBottom="8dp"
-                        android:backgroundTint="@drawable/chip_selector"
-                        android:padding="12dp"
-                        android:text="Drama"
-                        android:textAlignment="center" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="4dp"
-                        android:layout_marginBottom="8dp"
-                        android:backgroundTint="@drawable/chip_selector"
-                        android:padding="12dp"
-                        android:text="Action"
-                        android:textAlignment="center" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="4dp"
-                        android:layout_marginBottom="8dp"
-                        android:backgroundTint="@drawable/chip_selector"
-                        android:padding="12dp"
-                        android:text="Horror"
-                        android:textAlignment="center" />
-
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="4dp"
-                        android:layout_marginBottom="8dp"
-                        android:backgroundTint="@drawable/chip_selector"
-                        android:padding="12dp"
-                        android:text="Thriller"
-                        android:textAlignment="center" />
-
-                </com.google.android.material.chip.ChipGroup>
-
-            </HorizontalScrollView>
+                app:layout_constraintTop_toBottomOf="@id/logout" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/movies_list"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:clipToPadding="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chips_sv"
-                app:listData="@{viewModel.movies}"
-                tools:listitem="@layout/movie_item" />
+                app:layout_constraintTop_toBottomOf="@id/image_slider"
+                tools:listitem="@layout/parent_recyclerview_item" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 </layout>

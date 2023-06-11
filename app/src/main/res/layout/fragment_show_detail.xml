@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.khaled.popcornpals.presentation.viewmodel.MovieViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_color"
+            tools:context=".presentation.fragments.ShowDetailFragment">
+
+            <ImageView
+                android:id="@+id/movie_img"
+                android:layout_width="0dp"
+                android:layout_height="350dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/joker" />
+
+            <TextView
+                android:id="@+id/movie_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/movie_img"
+                tools:text="Joker" />
+
+            <TextView
+                android:id="@+id/year_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/gray"
+                android:layout_marginStart="16dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@id/dot_one_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/movie_tv"
+                tools:text="2019" />
+
+            <View
+                android:id="@+id/dot_one_view"
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/dot"
+                app:layout_constraintBottom_toBottomOf="@id/year_tv"
+                app:layout_constraintStart_toEndOf="@id/year_tv"
+                app:layout_constraintTop_toTopOf="@id/year_tv" />
+
+            <TextView
+                android:id="@+id/genres_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/gray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@id/dot_two_view"
+                app:layout_constraintBottom_toBottomOf="@id/year_tv"
+                app:layout_constraintStart_toEndOf="@id/dot_one_view"
+                app:layout_constraintTop_toTopOf="@id/year_tv"
+                tools:text="Crime, Drama, Thriller" />
+
+            <View
+                android:id="@+id/dot_two_view"
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/dot"
+                app:layout_constraintBottom_toBottomOf="@id/year_tv"
+                app:layout_constraintEnd_toStartOf="@id/runtime_tv"
+                app:layout_constraintStart_toEndOf="@id/genres_tv"
+                app:layout_constraintTop_toTopOf="@id/year_tv" />
+
+            <TextView
+                android:id="@+id/runtime_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/gray"
+                android:layout_marginEnd="16dp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/year_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/dot_two_view"
+                app:layout_constraintTop_toTopOf="@id/year_tv"
+                tools:text="2h 2min" />
+
+            <RatingBar
+                android:id="@+id/rating"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:progressBackgroundTint="@color/gray"
+                android:progressTint="#FFD700"
+                tools:rating="3.15"
+                android:stepSize="0.1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/year_tv" />
+
+            <TextView
+                android:id="@+id/story_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Story Line"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rating" />
+
+            <TextView
+                android:id="@+id/story_content_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:padding="16dp"
+                android:textColor="@color/gray"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/story_tv"
+                tools:text="The rise of Arthur Fleck, from aspiring stand-up comedian and pariah to Gotham's clown prince and leader of the revolution." />
+
+            <TextView
+                android:id="@+id/cast_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Cast"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/story_content_tv" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cast_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cast_tv"
+                tools:listitem="@layout/actor_item" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

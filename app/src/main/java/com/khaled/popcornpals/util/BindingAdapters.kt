@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.khaled.popcornpals.R
-import com.khaled.popcornpals.adapter.MovieItemAdapter
-import com.khaled.popcornpals.model.Movie
+import com.khaled.popcornpals.presentation.adapter.MovieItemAdapter
+import com.khaled.popcornpals.data.model.Movie
 
 @BindingAdapter("listData")
 fun bindRecyclerView(
@@ -19,6 +19,15 @@ fun bindRecyclerView(
     val adapter = recyclerView.adapter as MovieItemAdapter
     adapter.submitList(data)
 }
+
+//@BindingAdapter("listCategory")
+//fun bindCategoryRecyclerView(
+//    recyclerView: RecyclerView,
+//    data: List<Category>?
+//) {
+//    val adapter = recyclerView.adapter as MovieCategoryAdapter
+//    adapter.submitList(data)
+//}
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {

@@ -20,11 +20,24 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface ApiService {
+    @GET("MostPopularMovies/$API_KEY")
+    suspend fun getMostPopularMovies(): String
+
     @GET("Top250Movies/$API_KEY")
     suspend fun getTopMovies(): String
 
-    @GET("MostPopularMovies/$API_KEY")
-    suspend fun getMostPopularMovies(): String
+    @GET("InTheaters/$API_KEY")
+    suspend fun getInTheatersMovies(): String
+
+    @GET("ComingSoon/$API_KEY")
+    suspend fun getComingSoonMovies(): String
+
+    @GET("BoxOffice/$API_KEY")
+    suspend fun getBoxOfficeMovies(): String
+
+    @GET("BoxOfficeAllTime/$API_KEY")
+    suspend fun getBoxOfficeAllTimeMovies(): String
+
 }
 
 object Api {

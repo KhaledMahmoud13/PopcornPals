@@ -9,8 +9,10 @@ import com.khaled.popcornpals.model.Movie
 import com.khaled.popcornpals.network.Api
 import com.khaled.popcornpals.network.parseMovie
 import com.khaled.popcornpals.util.NetworkStatus
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import org.json.JSONObject
+import java.io.IOException
 
 class MovieViewModel : ViewModel() {
 
@@ -37,9 +39,9 @@ class MovieViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = NetworkStatus.LOADING
             try {
-                val listOfMovies = Api.retrofitService.getMostPopularMovies()
-                _movies.value = parseMovie(JSONObject(listOfMovies))
+                _movies.value = parseMovie(JSONObject(Api.retrofitService.getMostPopularMovies()))
                 _mostPopularMovie.value = (_movies.value as ArrayList<Movie>)[0]
+                (_movies.value as ArrayList<Movie>).removeAt(0)
                 Log.e("TAG", _movies.value.toString())
                 _status.value = NetworkStatus.DONE
             } catch (e: Exception) {
@@ -49,4 +51,30 @@ class MovieViewModel : ViewModel() {
             }
         }
     }
+
+    fun filter(
+        topMovies: Boolean,
+        inTheatersMovies: Boolean,
+        comingSoonMovies: Boolean,
+        boxOfficeMovies: Boolean,
+        boxOfficeAllTimeMovies: Boolean
+    ) {
+        viewModelScope.launch {
+            if (topMovies) {
+                _movies.value = parseMovie(JSONObject(Api.retrofitService.getTopMovies()))
+            } else if (inTheatersMovies) {
+                _movies.value = parseMovie(JSONObject(Api.retrofitService.getInTheatersMovies()))
+            } else if (comingSoonMovies) {
+                _movies.value = parseMovie(JSONObject(Api.retrofitService.getComingSoonMovies()))
+            } else if (boxOfficeMovies) {
+                _movies.value = parseMovie(JSONObject(Api.retrofitService.getBoxOfficeMovies()))
+            } else if (boxOfficeAllTimeMovies) {
+                _movies.value =
+                    parseMovie(JSONObject(Api.retrofitService.getBoxOfficeAllTimeMovies()))
+            } else {
+                _movies.value = parseMovie(JSONObject(Api.retrofitService.getMostPopularMovies()))
+            }
+        }
+    }
+
 }

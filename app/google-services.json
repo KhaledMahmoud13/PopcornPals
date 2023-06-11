@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "884027467033",
+    "project_id": "popcorn-pals",
+    "storage_bucket": "popcorn-pals.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884027467033:android:2d328d5c048f3e2a301188",
+        "android_client_info": {
+          "package_name": "com.khaled.popcornpals"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884027467033-be4qoeg8sop2d7oq8k10hf9f48ebjt5i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.khaled.popcornpals",
+            "certificate_hash": "b0ee885bd1e1731a3db3be3ca1bed79e7a8f7a9a"
+          }
+        },
+        {
+          "client_id": "884027467033-6sbm9e7fubrfc781jmh3ng0m605qmh1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC849ITl-v5_PqS3rs5FapST75sQVqrsMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884027467033-6sbm9e7fubrfc781jmh3ng0m605qmh1b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

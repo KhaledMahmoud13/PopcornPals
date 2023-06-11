@@ -1,92 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="movie"
-            type="com.khaled.popcornpals.model.Movie" />
+            type="com.khaled.popcornpals.data.model.Movie" />
     </data>
 
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@color/background_color">-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:layout_width="150dp"-->
+    <!--            android:layout_height="200dp"-->
+    <!--            android:layout_margin="5dp"-->
+    <!--            android:backgroundTint="@color/background_color"-->
+    <!--            app:cardCornerRadius="5dp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--            <ImageView-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_margin="8dp"-->
+    <!--                android:scaleType="centerCrop"-->
+    <!--                app:imageUrl="@{movie.image}"-->
+    <!--                tools:src="@drawable/joker" />-->
+
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!--    <ImageView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:scaleType="centerCrop"-->
+    <!--        app:imageUrl="@{movie.image}"-->
+    <!--        tools:src="@drawable/joker" />-->
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="130dp"
+        android:layout_height="180dp">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/popular_movie_img"
+            android:layout_width="130dp"
+            android:layout_height="180dp"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{movie.image}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/movie_img"
-                    android:layout_width="125dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="6dp"
-                    android:scaleType="fitXY"
-                    app:imageUrl="@{movie.image}"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:shapeAppearance="@style/circular_movie_img" />
-
-                <TextView
-                    android:id="@+id/movie_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:text="@{movie.title}"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@id/movie_img"
-                    app:layout_constraintTop_toTopOf="@id/movie_img" />
-
-                <TextView
-                    android:id="@+id/popular_movie_year_img"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="@{movie.year}"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="@id/movie_tv"
-                    app:layout_constraintStart_toEndOf="@id/movie_tv"
-                    app:layout_constraintTop_toTopOf="@id/movie_tv" />
-
-                <RatingBar
-                    android:id="@+id/movie_rb"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:isIndicator="true"
-                    android:numStars="5"
-                    android:layout_marginVertical="5dp"
-                    android:layout_marginStart="5dp"
-                    android:progressTint="#FFD700"
-                    android:rating="4"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/movie_img"
-                    app:layout_constraintTop_toBottomOf="@+id/movie_tv" />
-
-<!--                <TextView-->
-<!--                    android:id="@+id/popular_movie_genres_tv"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="15dp"-->
-<!--                    android:text="Crime, Drama, Thriller"-->
-<!--                    android:textColor="#A9A9A9"-->
-<!--                    android:textSize="18sp"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toEndOf="@id/movie_img"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/movie_rb" />-->
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.cardview.widget.CardView>
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="1"
+            app:shapeAppearance="@style/circular_movie_img"
+            tools:src="@drawable/joker" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
