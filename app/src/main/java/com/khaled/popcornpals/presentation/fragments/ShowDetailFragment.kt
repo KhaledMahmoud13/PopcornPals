@@ -16,6 +16,7 @@ import com.khaled.popcornpals.R
 import com.khaled.popcornpals.databinding.FragmentShowDetailBinding
 import com.khaled.popcornpals.presentation.adapter.ActorItemAdapter
 import com.khaled.popcornpals.presentation.viewmodel.MovieViewModel
+import com.khaled.popcornpals.util.gone
 import com.khaled.popcornpals.util.invisible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.roundToInt
@@ -50,12 +51,19 @@ class ShowDetailFragment : Fragment() {
         binding.movieTv.text = args.movie.title
         binding.yearTv.text = args.movie.year
         binding.genresTv.text = args.movie.genres
-        binding.runtimeTv.text = args.movie.runtimeStr
+        if (args.movie.runtimeStr != "null") {
+            binding.runtimeTv.text = args.movie.runtimeStr
+        } else {
+            binding.runtimeTv.invisible()
+            binding.dotTwoView.invisible()
+        }
+
         if (args.movie.imDbRating != "null") {
             binding.rating.rating = args.movie.imDbRating.toFloat().roundToInt().toFloat() / 2
         } else {
             binding.rating.invisible()
         }
+        binding.rating.invisible()
         binding.storyContentTv.text = args.movie.plot
         actorItemAdapter = ActorItemAdapter()
         actorItemAdapter.submitList(args.movie.actorList)

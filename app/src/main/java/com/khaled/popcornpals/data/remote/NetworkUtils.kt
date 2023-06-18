@@ -1,7 +1,7 @@
 package com.khaled.popcornpals.data.remote
 
-import com.khaled.popcornpals.data.model.Actor
-import com.khaled.popcornpals.data.model.Movie
+import com.khaled.popcornpals.domain.model.Actor
+import com.khaled.popcornpals.domain.model.Movie
 import org.json.JSONObject
 
 fun parseMovies(jsonResult: JSONObject): List<Movie> {

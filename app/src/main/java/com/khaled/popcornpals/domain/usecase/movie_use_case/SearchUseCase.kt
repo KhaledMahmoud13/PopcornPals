@@ -1,6 +1,6 @@
 package com.khaled.popcornpals.domain.usecase.movie_use_case
 
-import com.khaled.popcornpals.data.model.Movie
+import com.khaled.popcornpals.domain.model.Movie
 import com.khaled.popcornpals.domain.repository.MovieRepository
 import javax.inject.Inject
 

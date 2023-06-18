@@ -1,6 +1,6 @@
 package com.khaled.popcornpals.domain.repository
 
-import com.khaled.popcornpals.data.model.Movie
+import com.khaled.popcornpals.domain.model.Movie
 
 interface MovieRepository {
     suspend fun getMostPopularMovies(): List<Movie>

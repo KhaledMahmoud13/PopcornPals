@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.khaled.popcornpals.data.model.Category
-import com.khaled.popcornpals.data.model.Movie
+import com.khaled.popcornpals.domain.model.Category
+import com.khaled.popcornpals.domain.model.Movie
 import com.khaled.popcornpals.domain.usecase.movie_use_case.GetComingSoonMoviesUseCase
 import com.khaled.popcornpals.domain.usecase.movie_use_case.GetInTheatersMoviesUseCase
 import com.khaled.popcornpals.domain.usecase.movie_use_case.GetMostPopularMoviesUseCase
@@ -15,6 +15,7 @@ import com.khaled.popcornpals.domain.usecase.movie_use_case.GetTopMoviesUseCase
 import com.khaled.popcornpals.domain.usecase.movie_use_case.MovieUseCases
 import com.khaled.popcornpals.util.NetworkStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.math.log
@@ -63,7 +64,10 @@ class MovieViewModel @Inject constructor(
         get() = _navigateToSelectedMovie
 
     init {
-        getAllMovies()
+        extractedMovieCategory()
+    }
+
+    fun extractedMovieCategory() {
         _popularMovies.observeForever { movies ->
             if (movies.isNotEmpty()) {
                 moviesCategories()
@@ -86,21 +90,23 @@ class MovieViewModel @Inject constructor(
         }
     }
 
-    private fun getAllMovies() {
-            viewModelScope.launch {
-            _status.value = NetworkStatus.LOADING
+    fun getAllMovies() {
+        GlobalScope.launch {
+            _status.postValue(NetworkStatus.LOADING)
             try {
-                _popularMovies.value = movieUseCases.getMostPopularMoviesUseCase()!!
-                _topMovies.value = movieUseCases.getTopMoviesUseCase()!!
-                _inTheatersMovies.value = movieUseCases.getInTheatersMoviesUseCase()!!
-                _comingSoonMovies.value = movieUseCases.getComingSoonMoviesUseCase()!!
-                _mostPopularMovies.value = _inTheatersMovies.value!!.take(5)
-                _status.value = NetworkStatus.DONE
-                Log.e("TAG", _inTheatersMovies.value.toString())
-                Log.e("TAG", _status.value.toString())
+                if (_status.value != NetworkStatus.DONE) {
+                    _popularMovies.postValue(movieUseCases.getMostPopularMoviesUseCase())
+                    _topMovies.postValue(movieUseCases.getTopMoviesUseCase())
+                    _inTheatersMovies.postValue(movieUseCases.getInTheatersMoviesUseCase())
+                    _comingSoonMovies.postValue(movieUseCases.getComingSoonMoviesUseCase())
+                    _mostPopularMovies.postValue(_inTheatersMovies.value!!.take(5))
+                    _status.postValue(NetworkStatus.DONE)
+                    Log.e("TAG", _inTheatersMovies.value.toString())
+                    Log.e("TAG", _status.value.toString())
+                }
             } catch (e: Exception) {
-                _status.value = NetworkStatus.ERROR
-                _popularMovies.value = mutableListOf()
+                _status.postValue(NetworkStatus.ERROR)
+                _popularMovies.postValue(mutableListOf())
                 Log.e("TAG", e.message.toString())
             }
         }
@@ -117,7 +123,7 @@ class MovieViewModel @Inject constructor(
 
     fun displayMovieDetails(id: String) {
         viewModelScope.launch {
-                _status.value = NetworkStatus.LOADING
+            _status.value = NetworkStatus.LOADING
             try {
                 _navigateToSelectedMovie.value = movieUseCases.getMovieDetailsUseCase(id)
 //                Log.d("TAG", _navigateToSelectedMovie.value.toString())

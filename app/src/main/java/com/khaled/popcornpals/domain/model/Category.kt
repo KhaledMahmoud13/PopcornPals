@@ -1,4 +1,4 @@
-package com.khaled.popcornpals.data.model
+package com.khaled.popcornpals.domain.model
 
 data class Category(
     val id: Int,

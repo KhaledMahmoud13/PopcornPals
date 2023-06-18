@@ -3,14 +3,14 @@ package com.khaled.popcornpals.presentation.fragments
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.khaled.popcornpals.R
@@ -24,21 +24,34 @@ import dagger.hilt.android.AndroidEntryPoint
 class SplashFragment : Fragment() {
 
     private lateinit var binding: FragmentSplashBinding
-    private val authViewModel: AuthViewModel by lazy {
-        ViewModelProvider(this)[AuthViewModel::class.java]
+    private val movieViewModel: MovieViewModel by activityViewModels()
+    private val authViewModel: AuthViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.e("TAG", "onCreateView Splash: $movieViewModel")
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragment=
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_splash, container, false)
 
         val args by navArgs<SplashFragmentArgs>()
 
         if (args.fromLogin) {
-            navigateToHome()
+            movieViewModel.getAllMovies()
+            movieViewModel.status.observe(viewLifecycleOwner) {
+                if (it == NetworkStatus.DONE) {
+                    movieViewModel.movieCategories.observe(viewLifecycleOwner) { categories ->
+                        if (categories.isNotEmpty()) {
+                            navigateToHome()
+                        }
+                    }
+                }
+            }
         } else {
             Handler(Looper.getMainLooper()).postDelayed({
                 authViewModel.authenticationState.observe(
@@ -46,7 +59,16 @@ class SplashFragment : Fragment() {
                 ) { authenticationState ->
                     when (authenticationState) {
                         AuthViewModel.AuthenticationState.AUTHENTICATED -> {
-                            navigateToHome()
+                            movieViewModel.getAllMovies()
+                            movieViewModel.status.observe(viewLifecycleOwner) {
+                                if (it == NetworkStatus.DONE) {
+                                    movieViewModel.movieCategories.observe(viewLifecycleOwner) { categories ->
+                                        if (categories.isNotEmpty()) {
+                                            navigateToHome()
+                                        }
+                                    }
+                                }
+                            }
                         }
 
                         else -> {
@@ -56,11 +78,6 @@ class SplashFragment : Fragment() {
                 }
             }, 5000)
         }
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            findNavController().navigate(
-//                SplashFragmentDirections.actionSplashFragmentToOnBoardingFragment()
-//            )
-//        }, 5000)
         return binding.root
     }
 

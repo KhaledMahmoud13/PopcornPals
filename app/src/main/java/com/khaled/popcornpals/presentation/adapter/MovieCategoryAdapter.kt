@@ -1,12 +1,13 @@
 package com.khaled.popcornpals.presentation.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.khaled.popcornpals.data.model.Category
+import com.khaled.popcornpals.domain.model.Category
 import com.khaled.popcornpals.databinding.ParentRecyclerviewItemBinding
 
 class MovieCategoryAdapter(private val onClickListener: MovieItemAdapter.OnClickListener) :
@@ -56,7 +57,6 @@ class MovieCategoryAdapter(private val onClickListener: MovieItemAdapter.OnClick
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = movieItemAdapter
         }
-
         movieItemAdapter.submitList(category.movies)
     }
 }

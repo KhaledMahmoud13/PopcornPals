@@ -1,4 +1,4 @@
-package com.khaled.popcornpals.data.model
+package com.khaled.popcornpals.domain.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -11,7 +11,7 @@ data class Movie(
     val year: String,
     val image: String,
     val releaseDate: String,
-    val runtimeStr: String,
+    val runtimeStr: String?,
     val plot: String,
     val awards: String,
     val directors: String,

@@ -7,7 +7,7 @@
 
         <variable
             name="actor"
-            type="com.khaled.popcornpals.data.model.Actor" />
+            type="com.khaled.popcornpals.domain.model.Actor" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

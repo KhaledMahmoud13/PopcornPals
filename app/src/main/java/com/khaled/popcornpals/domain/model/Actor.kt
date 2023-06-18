@@ -1,4 +1,4 @@
-package com.khaled.popcornpals.data.model
+package com.khaled.popcornpals.domain.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
