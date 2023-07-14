@@ -15,7 +15,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".presentation.fragments.LoginFragment">
+            tools:context=".presentation.views.LoginFragment">
             <!--#292362-->
             <TextView
                 android:id="@+id/login_tv"

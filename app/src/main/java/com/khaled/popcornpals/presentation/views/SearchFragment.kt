@@ -1,7 +1,6 @@
-package com.khaled.popcornpals.presentation.fragments
+package com.khaled.popcornpals.presentation.views
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.khaled.popcornpals.R
 import com.khaled.popcornpals.databinding.FragmentSearchBinding
 import com.khaled.popcornpals.presentation.adapter.SearchItemAdapter
@@ -37,7 +35,6 @@ class SearchFragment : Fragment() {
 
         searchItemAdapter = SearchItemAdapter(SearchItemAdapter.OnClickListener { movie ->
             searchViewModel.displayMovieDetails(movie.id)
-            Toast.makeText(requireContext(), movie.id, Toast.LENGTH_SHORT).show()
         })
 
         binding.searchedMoviesList.apply {

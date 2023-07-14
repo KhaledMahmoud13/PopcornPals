@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.khaled.popcornpals.presentation.fragments.HomeFragment"
+        android:name="com.khaled.popcornpals.presentation.views.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.khaled.popcornpals.presentation.fragments.SplashFragment"
+        android:name="com.khaled.popcornpals.presentation.views.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/onBoardingFragment"
-        android:name="com.khaled.popcornpals.presentation.fragments.OnBoardingFragment"
+        android:name="com.khaled.popcornpals.presentation.views.OnBoardingFragment"
         android:label="fragment_onboarding"
         tools:layout="@layout/fragment_onboarding" >
         <action
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.khaled.popcornpals.presentation.fragments.LoginFragment"
+        android:name="com.khaled.popcornpals.presentation.views.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -71,22 +71,14 @@
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
-            app:destination="@id/forgotPasswordFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_splashFragment"
             app:destination="@id/splashFragment"
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/forgotPasswordFragment"
-        android:name="com.khaled.popcornpals.presentation.fragments.ForgotPasswordFragment"
-        android:label="fragment_forgotpassword"
-        tools:layout="@layout/fragment_forgotpassword" />
-    <fragment
         android:id="@+id/signupFragment"
-        android:name="com.khaled.popcornpals.presentation.fragments.SignupFragment"
+        android:name="com.khaled.popcornpals.presentation.views.SignupFragment"
         android:label="SignupFragment" >
         <action
             android:id="@+id/action_signupFragment_to_loginFragment"
@@ -101,7 +93,7 @@
     </fragment>
     <fragment
         android:id="@+id/showDetailFragment"
-        android:name="com.khaled.popcornpals.presentation.fragments.ShowDetailFragment"
+        android:name="com.khaled.popcornpals.presentation.views.ShowDetailFragment"
         android:label="ShowDetailFragment" >
         <argument
             android:name="movie"
@@ -109,7 +101,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.khaled.popcornpals.presentation.fragments.SearchFragment"
+        android:name="com.khaled.popcornpals.presentation.views.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action

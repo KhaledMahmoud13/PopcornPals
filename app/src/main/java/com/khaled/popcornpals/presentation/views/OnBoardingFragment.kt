@@ -1,4 +1,4 @@
-package com.khaled.popcornpals.presentation.fragments
+package com.khaled.popcornpals.presentation.views
 
 import android.graphics.RenderEffect
 import android.graphics.Shader

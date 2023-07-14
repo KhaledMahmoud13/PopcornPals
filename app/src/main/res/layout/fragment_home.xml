@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:background="@color/background_color"
             android:padding="10dp"
-            tools:context=".presentation.fragments.HomeFragment">
+            tools:context=".presentation.views.HomeFragment">
 
             <ImageView
                 android:id="@+id/logout"
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:textColor="@color/white"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/logout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/logout"

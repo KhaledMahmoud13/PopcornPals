@@ -67,7 +67,7 @@ class MovieViewModel @Inject constructor(
         extractedMovieCategory()
     }
 
-    fun extractedMovieCategory() {
+    private fun extractedMovieCategory() {
         _popularMovies.observeForever { movies ->
             if (movies.isNotEmpty()) {
                 moviesCategories()
@@ -137,6 +137,10 @@ class MovieViewModel @Inject constructor(
 
     fun displayMovieDetailsComplete() {
         _navigateToSelectedMovie.value = null
+    }
+
+    fun displayActorDetails() {
+
     }
 
 }

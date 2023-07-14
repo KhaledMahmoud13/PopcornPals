@@ -1,4 +1,4 @@
-package com.khaled.popcornpals.presentation.fragments
+package com.khaled.popcornpals.presentation.views
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.khaled.popcornpals.R
 import com.khaled.popcornpals.databinding.FragmentLoginBinding

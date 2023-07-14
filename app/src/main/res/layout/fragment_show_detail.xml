@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/background_color"
-            tools:context=".presentation.fragments.ShowDetailFragment">
+            tools:context=".presentation.views.ShowDetailFragment">
 
             <ImageView
                 android:id="@+id/movie_img"
@@ -47,84 +47,80 @@
                 android:id="@+id/year_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="15dp"
                 android:textColor="@color/gray"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@+id/dot_one_view"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/movie_tv"
                 tools:text="2019" />
 
-            <View
-                android:id="@+id/dot_one_view"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/dot"
-                app:layout_constraintBottom_toBottomOf="@id/year_tv"
-                app:layout_constraintEnd_toStartOf="@+id/genres_tv"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/year_tv"
-                app:layout_constraintTop_toTopOf="@id/year_tv" />
+<!--            <View-->
+<!--                android:id="@+id/dot_one_view"-->
+<!--                android:layout_width="5dp"-->
+<!--                android:layout_height="5dp"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:background="@drawable/dot"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/year_tv"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/genres_tv"-->
+<!--                app:layout_constraintHorizontal_bias="0.5"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/year_tv"-->
+<!--                app:layout_constraintTop_toTopOf="@id/year_tv" />-->
 
             <TextView
                 android:id="@+id/genres_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:textColor="@color/gray"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/year_tv"
-                app:layout_constraintEnd_toStartOf="@+id/dot_two_view"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/dot_one_view"
-                app:layout_constraintTop_toTopOf="@id/year_tv"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/year_tv"
                 tools:text="Crime, Drama, Thriller" />
 
-            <View
-                android:id="@+id/dot_two_view"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/dot"
-                app:layout_constraintBottom_toBottomOf="@id/year_tv"
-                app:layout_constraintEnd_toStartOf="@+id/runtime_tv"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/genres_tv"
-                app:layout_constraintTop_toTopOf="@id/year_tv" />
+<!--            <View-->
+<!--                android:id="@+id/dot_two_view"-->
+<!--                android:layout_width="5dp"-->
+<!--                android:layout_height="5dp"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:background="@drawable/dot"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/year_tv"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/runtime_tv"-->
+<!--                app:layout_constraintHorizontal_bias="0.5"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/genres_tv"-->
+<!--                app:layout_constraintTop_toTopOf="@id/year_tv" />-->
 
-            <TextView
-                android:id="@+id/runtime_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:textColor="@color/gray"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@id/year_tv"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/dot_two_view"
-                app:layout_constraintTop_toTopOf="@id/year_tv"
-                tools:text="2h 2min" />
+<!--            <TextView-->
+<!--                android:id="@+id/runtime_tv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:textColor="@color/gray"-->
+<!--                android:textSize="16sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/year_tv"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.5"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/dot_two_view"-->
+<!--                app:layout_constraintTop_toTopOf="@id/year_tv"-->
+<!--                tools:text="2h 2min" />-->
 
             <RatingBar
                 android:id="@+id/rating"
                 style="?android:attr/ratingBarStyleIndicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:isIndicator="true"
                 android:numStars="5"
+                android:layout_marginTop="10dp"
                 android:progressBackgroundTint="@color/gray"
                 android:progressTint="#FFD700"
                 android:stepSize="0.1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/year_tv"
+                app:layout_constraintTop_toBottomOf="@+id/genres_tv"
                 tools:rating="3.15" />
 
             <TextView

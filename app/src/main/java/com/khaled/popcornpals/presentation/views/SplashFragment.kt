@@ -1,4 +1,4 @@
-package com.khaled.popcornpals.presentation.fragments
+package com.khaled.popcornpals.presentation.views
 
 import android.os.Bundle
 import android.os.Handler

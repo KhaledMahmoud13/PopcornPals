@@ -15,7 +15,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".presentation.fragments.SignupFragment">
+            tools:context=".presentation.views.SignupFragment">
 
             <TextView
                 android:id="@+id/signup_tv"
