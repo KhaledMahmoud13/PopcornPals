@@ -4,16 +4,6 @@ import com.khaled.popcornpals.util.Constants.API_KEY
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-//private val moshi = Moshi.Builder()
-//    .add(KotlinJsonAdapterFactory())
-//    .build()
-//
-//private val retrofit = Retrofit.Builder()
-//    .baseUrl(BASE_URL)
-//    .addConverterFactory(ScalarsConverterFactory.create())
-//    .addConverterFactory(MoshiConverterFactory.create(moshi))
-//    .build()
-
 interface ApiService {
     @GET("MostPopularMovies/$API_KEY")
     suspend fun getMostPopularMovies(): String
@@ -40,7 +30,3 @@ interface ApiService {
     suspend fun searchTitle(@Path("Expression") expression: String): String
 
 }
-
-//object Api {
-//    val retrofitService: ApiService by lazy { retrofit.create(ApiService::class.java) }
-//}

@@ -32,9 +32,6 @@ class LoginFragment : Fragment() {
         binding.signupTv.setOnClickListener {
             findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToSignupFragment())
         }
-        binding.forgetPasswordTv.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToForgotPasswordFragment())
-        }
         return binding.root
     }
 
