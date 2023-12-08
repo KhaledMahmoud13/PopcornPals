@@ -2,6 +2,16 @@
 
 PopcornPals is an Android application that allows users to explore information about movies using the IMDb API. With this app, users can easily search for movies by title and view detailed information about each selected movie.
 
+## Screenshots
+
+<img src="https://github.com/KhaledMahmoud13/PopcornPals/blob/main/Screenshots/Samsung%20Galaxy%20S20%20Screenshot%201.png" height="500" width="250"/>&nbsp;&nbsp;
+<img src="https://github.com/KhaledMahmoud13/PopcornPals/blob/main/Screenshots/Samsung%20Galaxy%20S20%20Screenshot%202.png" height="500" width="250"/>&nbsp;&nbsp;
+<img src="https://github.com/KhaledMahmoud13/PopcornPals/blob/main/Screenshots/Samsung%20Galaxy%20S20%20Screenshot%203.png" height="500" width="250"/>&nbsp;&nbsp;
+<img src="https://github.com/KhaledMahmoud13/PopcornPals/blob/main/Screenshots/Samsung%20Galaxy%20S20%20Screenshot%204.png" height="500" width="250"/>&nbsp;&nbsp;
+<img src="https://github.com/KhaledMahmoud13/PopcornPals/blob/main/Screenshots/Samsung%20Galaxy%20S20%20Screenshot%205.png" height="500" width="250"/>&nbsp;&nbsp;
+<img src="https://github.com/KhaledMahmoud13/PopcornPals/blob/main/Screenshots/Samsung%20Galaxy%20S20%20Screenshot%206.png" height="500" width="250"/>&nbsp;&nbsp;
+
+
 ## Built With
 
 * [Dagger-Hilt](https://dagger.dev/hilt/) - A dependency injection library for Android that simplifies the implementation of DI in Android apps.
