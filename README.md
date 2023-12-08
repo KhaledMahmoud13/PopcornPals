@@ -10,11 +10,11 @@ PopcornPals is an Android application that allows users to explore information a
 * [Moshi](https://github.com/square/moshi/blob/master/README.md) - Moshi is a modern JSON library for Android, Java and Kotlin. It makes it easy to parse JSON into Java and Kotlin classes.
 * [Glide](https://github.com/bumptech/glide/blob/master/README.md) - Glide is a fast and efficient open-source image loading library for Android that simplifies the process of loading and caching images in Android applications.
 * [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines) - Kotlin coroutines provide a way to write asynchronous code that is concise and readable, facilitating concurrent programming.
-* [Single Activity Pattern]() - The single activity pattern in Android involves using a single activity to manage and navigate between different fragments or views within the app.
-* [Nested RecyclerView]() - A nested RecyclerView in Android is a RecyclerView that is placed within another RecyclerView to create a hierarchical or nested structure for displaying lists or grids.
-* [Data Binding]() - A technique that establishes a connection between the UI components and the underlying data sources, allowing automatic synchronization and updates.
-* [Clean Architecture]()
-* [MVVM (Model-View-ViewModel)]()
+* [Single Activity Pattern] - The single activity pattern in Android involves using a single activity to manage and navigate between different fragments or views within the app.
+* [Nested RecyclerView] - A nested RecyclerView in Android is a RecyclerView that is placed within another RecyclerView to create a hierarchical or nested structure for displaying lists or grids.
+* [Data Binding] - A technique that establishes a connection between the UI components and the underlying data sources, allowing automatic synchronization and updates.
+* [Clean Architecture]
+* [MVVM (Model-View-ViewModel)]
 
 
 
